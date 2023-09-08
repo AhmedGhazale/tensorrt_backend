@@ -100,7 +100,7 @@ endif() # TRITON_ENABLE_NVTX
 configure_file(src/libtriton_tensorrt.ldscript libtriton_tensorrt.ldscript COPYONLY)
 
 add_library(
-  triton-tensorrt-backend SHARED
+  triton-tensorrt-backend STATIC
   src/tensorrt.cc
   src/model_state.cc
   src/tensorrt_model.cc
@@ -204,7 +204,7 @@ target_link_libraries(
 target_link_libraries(
     triton-tensorrt-backend
     PRIVATE
-      CUDA::cudart
+      CUDA::cudart_static
 )
 
 
